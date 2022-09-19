@@ -4,13 +4,16 @@ import 'package:mvvm_odc_project/res/shared/theming.dart';
 import 'package:mvvm_odc_project/view/home_screen.dart';
 import 'package:mvvm_odc_project/view/registration/login_screen.dart';
 import 'package:mvvm_odc_project/view/registration/signup_screen.dart';
-import 'package:mvvm_odc_project/view/screens/events_screen.dart';
-import 'package:mvvm_odc_project/view/screens/final_screens.dart';
-import 'package:mvvm_odc_project/view/screens/lacture_screen.dart';
-import 'package:mvvm_odc_project/view/screens/midterm_screen.dart';
-import 'package:mvvm_odc_project/view/screens/section_screen.dart';
+import 'package:mvvm_odc_project/view/screens/events/events_screen.dart';
+import 'package:mvvm_odc_project/view/screens/final/final_screens.dart';
+import 'package:mvvm_odc_project/view/screens/lacture/lacture_screen.dart';
+import 'package:mvvm_odc_project/view/screens/midterm/midterm_screen.dart';
+import 'package:mvvm_odc_project/view/screens/note/notes_screen.dart';
+import 'package:mvvm_odc_project/view/screens/section/section_screen.dart';
+import 'package:mvvm_odc_project/view/screens/splash/splash_screen.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await DioHelper.init();
   return runApp(MyApp());
 }
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: SignUpScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: {
         LoginScreen.routeName: (_) => LoginScreen(),
         SignUpScreen.routeName: (_) => SignUpScreen(),
@@ -30,6 +33,8 @@ class MyApp extends StatelessWidget {
         MidtermScreen.routeName: (_) => MidtermScreen(),
         SectionScreen.routeName: (_) => SectionScreen(),
         EventScreen.routeName: (_) => EventScreen(),
+        SplashScreen.routeName: (_) => SplashScreen(),
+        NoteScreen.routeName: (_) => NoteScreen(),
       },
       theme: MyTheming.lightThem,
     );

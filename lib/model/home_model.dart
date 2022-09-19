@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_odc_project/res/shared/constance.dart';
-import 'package:mvvm_odc_project/view/screens/events_screen.dart';
-import 'package:mvvm_odc_project/view/screens/final_screens.dart';
-import 'package:mvvm_odc_project/view/screens/lacture_screen.dart';
-import 'package:mvvm_odc_project/view/screens/midterm_screen.dart';
-import 'package:mvvm_odc_project/view/screens/section_screen.dart';
+import 'package:mvvm_odc_project/view/screens/events/events_screen.dart';
+import 'package:mvvm_odc_project/view/screens/final/final_screens.dart';
+import 'package:mvvm_odc_project/view/screens/lacture/lacture_screen.dart';
+import 'package:mvvm_odc_project/view/screens/midterm/midterm_screen.dart';
+import 'package:mvvm_odc_project/view/screens/note/notes_screen.dart';
+import 'package:mvvm_odc_project/view/screens/section/section_screen.dart';
 
 class HomeModel {
   String? title;
@@ -74,6 +75,6 @@ List<HomeModel> homeData = [
         size: size,
       ),
       func: (BuildContext context) {
-        // Navigator.pushNamed(context,);
+        Navigator.pushNamed(context, NoteScreen.routeName);
       }),
 ];

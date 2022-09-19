@@ -5,7 +5,7 @@ import 'package:mvvm_odc_project/view/component/core/filter_icon.dart';
 import 'package:mvvm_odc_project/view/component/core/global_item.dart';
 import 'package:mvvm_odc_project/view/component/core/page_title.dart';
 
-import '../../view_model/cupit/midterm/midterm_cubit.dart';
+import '../../../view_model/cupit/midterm/midterm_cubit.dart';
 
 class MidtermScreen extends StatelessWidget {
   static const String routeName = 'midterm';

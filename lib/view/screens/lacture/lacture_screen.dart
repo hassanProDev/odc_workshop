@@ -5,33 +5,37 @@ import 'package:mvvm_odc_project/view/component/core/filter_icon.dart';
 import 'package:mvvm_odc_project/view/component/core/global_item.dart';
 import 'package:mvvm_odc_project/view/component/core/page_title.dart';
 
-import '../../view_model/cupit/sections/section_cubit.dart';
+import '../../../view_model/cupit/lacture/lactures_cubit.dart';
 
-class SectionScreen extends StatelessWidget {
-  static const String routeName = 'section';
+class LactureScreen extends StatelessWidget {
+  static const String routeName = 'lactures';
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return
+        // BlocProvider(
+        // create: (context) => LacturesCubit(LactureRepo(LactureApi())),
+        // child:
+        BlocProvider(
       lazy: true,
-      create: (context) => SectionCubit()..getAllData(),
-      child: BlocConsumer<SectionCubit, SectionState>(
+      create: (context) => LacturesCubit()..getAllData(),
+      child: BlocConsumer<LacturesCubit, LacturesState>(
         listener: (context, state) {
           // TODO: implement listener
         },
         builder: (context, state) {
-          SectionCubit myCubit = SectionCubit().get(context);
+          LacturesCubit myCubit = LacturesCubit().get(context);
           return SafeArea(
             child: Scaffold(
               appBar: AppBar(
                 elevation: 5,
                 backgroundColor: Colors.white,
                 leading: ArrowBackButton(),
-                title: PageTitle(title: 'Sections'),
+                title: PageTitle(title: 'Lacture'),
                 actions: [FilterIcon()],
                 centerTitle: true,
               ),
-              body: myCubit.sectionModel == null
+              body: myCubit.lactures == null
                   ? Text("data")
                   : Padding(
                       padding: EdgeInsets.all(24),
@@ -39,17 +43,17 @@ class SectionScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: ListView.builder(
-                              itemCount: myCubit.sectionModel!.data.length,
+                              itemCount: myCubit.lactures!.data!.length,
                               itemBuilder: (context, index) {
                                 return GlobalItem(
                                   subject: myCubit
-                                      .sectionModel!.data[index].sectionSubject,
-                                  startDate: myCubit.sectionModel!.data[index]
-                                      .sectionStartTime,
+                                      .lactures!.data![index].lectureSubject,
+                                  startDate: myCubit
+                                      .lactures!.data![index].lectureStartTime,
                                   endDate: myCubit
-                                      .sectionModel!.data[index].sectionEndTime,
+                                      .lactures!.data![index].lectureEndTime,
                                   date: myCubit
-                                      .sectionModel!.data[index].sectionDate,
+                                      .lactures!.data![index].lectureDate,
                                 );
                               },
                             ),
@@ -58,6 +62,7 @@ class SectionScreen extends StatelessWidget {
                       ),
                     ),
             ),
+            // ),
           );
         },
       ),

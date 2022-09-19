@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../../res/shared/constance.dart';
+
 class ArrowBackButton extends StatelessWidget {
-  const ArrowBackButton({Key? key}) : super(key: key);
+  Color? color;
+
+  ArrowBackButton({this.color = primaryColor});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +15,7 @@ class ArrowBackButton extends StatelessWidget {
       },
       child: Icon(
         Icons.arrow_back_ios,
-        color: Color(0xffff6600),
+        color: color,
       ),
     );
   }

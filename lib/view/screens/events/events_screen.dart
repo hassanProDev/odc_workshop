@@ -1,9 +1,9 @@
 import 'package:calendar_builder/calendar_builder.dart';
 import 'package:flutter/material.dart';
 
-import '../component/core/arrow_back_button.dart';
-import '../component/core/filter_icon.dart';
-import '../component/core/page_title.dart';
+import '../../component/core/arrow_back_button.dart';
+import '../../component/core/filter_icon.dart';
+import '../../component/core/page_title.dart';
 
 class EventScreen extends StatelessWidget {
   static const String routeName = 'eventScreen';

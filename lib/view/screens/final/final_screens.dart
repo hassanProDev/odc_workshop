@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../view_model/cupit/midterm/midterm_cubit.dart';
-import '../component/core/arrow_back_button.dart';
-import '../component/core/filter_icon.dart';
-import '../component/core/global_item.dart';
-import '../component/core/page_title.dart';
+import '../../../view_model/cupit/midterm/midterm_cubit.dart';
+import '../../component/core/arrow_back_button.dart';
+import '../../component/core/filter_icon.dart';
+import '../../component/core/global_item.dart';
+import '../../component/core/page_title.dart';
 
 class FinalsScreen extends StatelessWidget {
   static const String routeName = 'finalScreen';

@@ -9,6 +9,8 @@ class SignupLoaded extends SignupState {}
 
 class SignupSuccess extends SignupState {}
 
+class SignupDropDown extends SignupState {}
+
 class SignupError extends SignupState {
   final error;
 
