@@ -125,10 +125,9 @@ class SignUpBody extends StatelessWidget {
                           'universityId': myCubit.selectedUniversity,
                         };
 
-                        SignupCubit.get(context)
-                            .userSignUp(context, json)
-                            .then((value) {
-                          // print(value);
+                        SignupCubit.get(context).userSignUp(json).then((value) {
+                          Navigator.pushReplacementNamed(
+                              context, LoginScreen.routeName);
                         }).catchError((onError) {
                           print(onError.toString());
                         });

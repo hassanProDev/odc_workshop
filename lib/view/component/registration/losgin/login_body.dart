@@ -5,6 +5,7 @@ import 'package:mvvm_odc_project/res/shared/constance.dart';
 import 'package:mvvm_odc_project/view/registration/signup_screen.dart';
 
 import '../../../../view_model/cupit/login/login_c_cubit.dart';
+import '../../../home_screen.dart';
 import '../customTextFormField.dart';
 import '../custom_btn.dart';
 import 'break_line.dart';
@@ -58,9 +59,12 @@ class LoginBody extends StatelessWidget {
                   CustomBtn(
                     function: () {
                       if (loginformKey.currentState!.validate()) {
-                        LoginCCubit.get(context).userLogin(context,
-                            email: emailControler.text,
-                            password: passwordControler.text);
+                        LoginCCubit.get(context)
+                            .userLogin(
+                                email: emailControler.text,
+                                password: passwordControler.text)
+                            .then((value) => Navigator.pushReplacementNamed(
+                                context, HomeScreen.routeName));
                       }
                     },
                     text: 'Login',

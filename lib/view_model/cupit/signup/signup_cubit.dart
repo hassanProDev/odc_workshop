@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mvvm_odc_project/view/registration/login_screen.dart';
 
 import '../../../model/signup_model.dart';
 import '../../../network/dio_helper.dart';
@@ -43,12 +42,11 @@ class SignupCubit extends Cubit<SignupState> {
 
   static SignupCubit get(context) => BlocProvider.of(context);
 
-  Future userSignUp(context, json) async {
+  Future userSignUp(json) async {
     emit(SignupLoaded());
     await DioHelper.postData(url: registerEndPoint, data: json).then((value) {
       signUpModel = SignUpModel.fromJson(value.data);
       print(value.data);
-      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
       emit(SignupSuccess());
       print('ana gameeeeeed');
     }).catchError((error) {

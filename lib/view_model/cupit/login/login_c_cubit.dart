@@ -6,8 +6,6 @@ import 'package:mvvm_odc_project/model/login_model.dart';
 import 'package:mvvm_odc_project/network/dio_helper.dart';
 import 'package:mvvm_odc_project/network/end_points.dart';
 
-import '../../../view/home_screen.dart';
-
 part 'login_c_state.dart';
 
 class LoginCCubit extends Cubit<LoginCState> {
@@ -18,8 +16,7 @@ class LoginCCubit extends Cubit<LoginCState> {
 
   static LoginCCubit get(context) => BlocProvider.of(context);
 
-  Future userLogin(context,
-      {required String email, required String password}) async {
+  Future userLogin({required String email, required String password}) async {
     emit(LoginCLoaded());
     await DioHelper.postData(
         url: loginEndPoint,
@@ -28,7 +25,6 @@ class LoginCCubit extends Cubit<LoginCState> {
 
       if (loginModel!.data!.accessToken != '' &&
           loginModel!.data!.accessToken != null) {
-        Navigator.pushReplacementNamed(context, HomeScreen.routeName);
         token = loginModel!.data!.accessToken ?? '';
       }
       print(value.data);
